@@ -27,5 +27,5 @@ def validate(passwd, hash):
 if __name__ == '__main__':
     passwd = 'Hello different world'
     ct = cipher(passwd)
-    m = sha256(ct).hexdigest()
-    print(validate(passwd, m))
+    decipher = decipher(ct).decode('utf-8')
+    print(decipher)
