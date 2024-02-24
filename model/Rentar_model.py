@@ -5,7 +5,7 @@ def obtener_rentas():
     return Rentar.query.all()
 
 def obtener_renta_por_id(id:int):
-    return Rentar.query.filter_by(idRenta=id).first()
+    return Rentar.query.filter_by(idRentar=id).first()
 
 def obtener_fecha_renta(fecha:str):
     return Rentar.query.filter_by(fecha_renta=fecha)

@@ -37,7 +37,7 @@ def pedir_nombre_a_buscar():
     return "Introduzca el nombre del registro que desea buscar: "
 
 def pedir_fecha_a_buscar():
-    return "Introduzca la fecha de renta que desea buscar: "
+    return "Introduzca la fecha de renta que desea buscar (en formato aaa-mm-dd): "
 
 
 def eliminar_registros():
@@ -131,7 +131,7 @@ def menu():
                     fecha = input(pedir_fecha_a_buscar())
                     imprimir_peticion(Rentar_model.obtener_fecha_renta(fecha))
                     id = int(input(pedir_id()))
-                    fecha = input("Introduzca la nueva fecha de renta: ")
+                    fecha = input("Introduzca la nueva fecha de renta (en formato aaa-mm-dd): ")
                     Rentar_model.actualizar_fecha_renta(fecha, id)
                 elif opcion_tabla == 4:
                     salir_menu_principal()
