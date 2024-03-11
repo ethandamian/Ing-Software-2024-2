@@ -1,6 +1,12 @@
 from alchemyClasses.Peliculas import Peliculas
 from alchemyClasses import db 
 
+
+def crear_pelicula(nombre, genero=None, duracion=None, inventario=1):
+    nueva_pelicula = Peliculas(nombre, genero, duracion, inventario)
+    db.session.add(nueva_pelicula) 
+    db.session.commit()
+
 def obtener_peliculas():
     return Peliculas.query.all()
 
@@ -14,18 +20,18 @@ def actualizar_nombre_pelicula(nombre: str, id: int):
     pelicula = obtener_pelicula_por_id(id)
     pelicula.nombre = nombre
     db.session.commit()
-    print("Nombre de la Película actualizado con éxito!")
-    print("-"*100)
 
 def eliminar_pelicula_por_id(id: int):
     pelicula = obtener_pelicula_por_id(id)
-    db.session.delete(pelicula)
-    db.session.commit()
-    print("Película eliminada con éxito!")
-    print("-"*100)
+    try:
+        db.session.delete(pelicula)
+        db.session.commit()
+        return 0
+    except Exception as e:
+        print("Error al eliminar la pelicula:", e)
+        return -1
+
 
 def borrar_tabla_peliculas():
     db.session.query(Peliculas).delete()
     db.session.commit()
-    print("Tabla películas borrada con éxito!")
-    print("-"*100)

@@ -1,0 +1,41 @@
+{% extends './layout.html' %}
+
+{% block title %}Mostrar Registros Usuarios{% endblock %}
+
+{%block customStyles%}
+<link rel="stylesheet" href="{{url_for('static', filename='CSS/registros.css')}}">
+{%endblock%}
+
+{% block body %}
+<main>
+    <div class="header">
+        <a type="button" class="btn" href="/home">Regresar</a>
+        <p>Registros de <strong class="negritas">Usuarios</strong></p>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="column-title" scope="col">Id</th>
+                <th class="column-title" scope="col">Nombre</th>
+                <th class="column-title" scope="col">Apellido Paterno</th>
+                <th class="column-title" scope="col">Apellido Materno</th>
+                <th class="column-title" scope="col">Email</th>
+                <th class="column-title" scope="col">SuperUser</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for usuario in usuarios %}
+            <tr class="table-dark">
+                <th scope="row">{{usuario.idUsuario}}</th>
+                <td>{{usuario.nombre}}</td>
+                <td>{{usuario.apPat}}</td>
+                <td>{{usuario.apMat}}</td>
+                <td>{{usuario.email}}</td>
+                <td>{{usuario.superUser}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</main>
+{% endblock %}

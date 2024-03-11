@@ -1,0 +1,69 @@
+{% extends './layout.html'%}
+
+{% block title %}Crear Usuario{% endblock %}
+
+{%block customStyles%}
+<link rel="stylesheet" href="{{url_for('static',filename='CSS/crear-registros.css')}}">
+{%endblock%}
+
+{% block body %}
+<main>
+    <div class="header">
+        <a type="button" class="btn" href="/home">Regresar</a>
+        <p>Crear <strong class="negritas">Usuario</strong></p>
+        <p class="subtitle">Porfavor, ingrese los datos solicitados</p>
+    </div>
+    <div class="form-container">
+        <form method="POST">
+            <div class="mb-4">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required
+                    placeholder="Ingrese su Nombre" pattern="[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]*">
+            </div>
+            <div class="mb-4">
+                <label for="apellidoPat" class="form-label">Apellido Paterno</label>
+                <input type="text" class="form-control" id="apePat" name="apPat" required
+                    placeholder="Ingrese su Apellido Paterno" pattern="[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]*">
+            </div>
+            <div class="mb-4">
+                <label for="apellidoMat" class="form-label">Apellido Materno</label>
+                <input type="text" class="form-control" id="apeMat" name="apMat" required
+                    placeholder="Ingrese su Apellido Materno" pattern="[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]*">
+            </div>
+            <div class="mb-4">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="mb-4">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required placeholder="Ingrese su Email"
+                    [a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" name="superUser">
+                <label class="form-check-label" for="exampleCheck1">Super Usuario</label>
+            </div>
+            <div class="btn-submit-container">
+
+                <button type="submit" class="btn btn-submit">Crear</button>
+            </div>
+        </form>
+        {% with messages = get_flashed_messages()%}
+        {% if messages %}
+        {%for message in messages%}
+        <div class="alert alert-primary" role="alert" id="alert">
+            <strong>{{message}}</strong>
+
+        </div>
+        {%endfor%}
+
+        {% endif %}
+
+        {% endwith %}
+
+    </div>
+
+</main>
+
+<script src="../static/js/formularios.js"></script>
+{%endblock%}

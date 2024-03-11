@@ -1,6 +1,17 @@
 from alchemyClasses.Rentar import Rentar
 from alchemyClasses import db
 
+
+def crear_renta(idUsuario, idPelicula, fecha_renta, dias_de_renta, estatus):
+    try:
+        nueva_renta = Rentar(idUsuario, idPelicula, fecha_renta, dias_de_renta, estatus)
+        db.session.add(nueva_renta)
+        db.session.commit()
+        return 0
+    except Exception as e:
+        print("Error al crear la renta:", e)
+        return -1
+
 def obtener_rentas():
     return Rentar.query.all()
 
@@ -14,18 +25,18 @@ def actualizar_fecha_renta(fecha: str, id: int):
     renta = obtener_renta_por_id(id)
     renta.fecha_renta = fecha
     db.session.commit()
-    print("Fecha de la renta actualizada con éxito!")
-    print("-"*100)
+ 
 
 def eliminar_renta_por_id(id: int):
     renta = obtener_renta_por_id(id)
-    db.session.delete(renta)
-    db.session.commit()
-    print("Renta eliminada con éxito!")
-    print("-"*100)
+    try:
+        db.session.delete(renta)
+        db.session.commit()
+        return 0
+    except Exception as e:
+        print("Error al eliminar la renta:", e)
+        return -1
 
 def borrar_tabla_rentas():
     db.session.query(Rentar).delete()
     db.session.commit()
-    print("Tabla rentas borrada con éxito!")
-    print("-"*100)

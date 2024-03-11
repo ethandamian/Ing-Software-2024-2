@@ -17,6 +17,11 @@ body {
 
 }
 
+.main {
+    height: 100%;
+    padding-top: 80px;
+}
+
 .card {
     border-color: #cfd0d1;
     border-radius: 0.75rem;
@@ -31,6 +36,7 @@ body {
     justify-content: center;
     align-items: center;
 
+
 }
 
 .card-container {
@@ -39,7 +45,6 @@ body {
     align-items: center;
     align-content: center;
     height: 80%;
-
 }
 
 .btn {

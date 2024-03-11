@@ -23,4 +23,4 @@ class Usuarios(db.Model):
         self.superUser = superUser
     
     def __str__(self) -> str:
-        return f'Usuario: \nId: {self.idUsuario} \n{self.nombre} {self.apPat} {self.apMat}\n-----------------------------------------'
+        return f'Usuario: \nId: {self.idUsuario} \n{self.nombre} {self.apPat} {self.apMat} {self.password} {self.email} {self.superUser}\n'

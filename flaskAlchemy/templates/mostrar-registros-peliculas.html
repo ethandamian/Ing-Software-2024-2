@@ -1,0 +1,39 @@
+{% extends './layout.html' %}
+
+{% block title %}Mostrar Registros Peliculas{% endblock %}
+
+{%block customStyles%}
+<link rel="stylesheet" href="{{url_for('static', filename='CSS/registros.css')}}">
+{%endblock%}
+
+{% block body %}
+<main>
+    <div class="header">
+        <a type="button" class="btn" href="/home">Regresar</a>
+        <p>Registros de <strong class="negritas">Peliculas</strong></p>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="column-title" scope="col">Id</th>
+                <th class="column-title" scope="col">Nombre</th>
+                <th class="column-title" scope="col">Genero</th>
+                <th class="column-title" scope="col">Duracion</th>
+                <th class="column-title" scope="col">Inventario</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for pelicula in peliculas %}
+            <tr class="table-dark">
+                <th scope="row">{{pelicula.idPelicula}}</th>
+                <td>{{pelicula.nombre}}</td>
+                <td>{{pelicula.genero}}</td>
+                <td>{{pelicula.duracion}}</td>
+                <td>{{pelicula.inventario}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</main>
+{% endblock %}

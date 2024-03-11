@@ -10,12 +10,12 @@ class Rentar(db.Model):
     dias_de_renta = Column(Integer,default=5)
     estatus = Column(Integer,default=1)
 
-    def __init__(self, idUsuario, idPelicula, fechaRenta, fechaDevolucion):
+    def __init__(self, idUsuario, idPelicula, fechaRenta, dias_de_renta,estatus=0):
         self.idUsuario = idUsuario
         self.idPelicula = idPelicula
-        self.fechaRenta = fechaRenta
-        self.fechaDevolucion = fechaDevolucion
-        self.rentaActiva = True
+        self.fecha_renta = fechaRenta
+        self.dias_de_renta = dias_de_renta
+        self.estatus = estatus 
 
     def __str__(self) -> str:
-        return f'Renta: \nId: {self.idRentar} \nIdUsuario: {self.idUsuario} \nIdPelicula: {self.idPelicula}\nDias De renta: {self.dias_de_renta}\n-----------------------------------------'
+        return f'Renta: \nId: {self.idRentar} \nIdUsuario: {self.idUsuario} \nIdPelicula: {self.idPelicula}\nDias De renta: {self.dias_de_renta}\n'

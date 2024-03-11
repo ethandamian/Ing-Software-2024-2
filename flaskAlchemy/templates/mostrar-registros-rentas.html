@@ -1,0 +1,42 @@
+{% extends './layout.html' %}
+
+{% block title %}Mostrar Registros Rentas{% endblock %}
+
+{%block customStyles%}
+<link rel="stylesheet" href="{{url_for('static', filename='CSS/registros.css')}}">
+{%endblock%}
+
+{% block body %}
+<main>
+    <div class="header">
+        <a type="button" class="btn" href="/home">Regresar</a>
+        <p>Registros de <strong class="negritas">Rentas</strong></p>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="column-title" scope="col">IdRenta</th>
+                <th class="column-title" scope="col">idUsuario</th>
+                <th class="column-title" scope="col">idPelicula</th>
+                <th class="column-title" scope="col">Fecha De Renta</th>
+                <th class="column-title" scope="col">Dias De Renta</th>
+                <th class="column-title" scope="col">Estatus</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for renta in rentas %}
+            <tr
+                class="{% if renta.dias_de_renta == 0 and renta.estatus == 0%}table-danger{% else %}table-dark{% endif %}">
+                <th scope="row">{{renta.idRentar}}</th>
+                <td>{{renta.idUsuario}}</td>
+                <td>{{renta.idPelicula}}</td>
+                <td>{{renta.fecha_renta}}</td>
+                <td>{{renta.dias_de_renta}}</td>
+                <td>{{"Entregada" if renta.estatus else "No Entraga"}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</main>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends './layout.html'%}
+
+{% block title %}Crear Pelicula{% endblock %}
+
+{%block customStyles%}
+<link rel="stylesheet" href="{{url_for('static',filename='CSS/crear-registros.css')}}">
+{%endblock%}
+
+{% block body %}
+<main>
+    <div class="header">
+        <a type="button" class="btn" href="/home">Regresar</a>
+        <p>Crear <strong class="negritas">Renta</strong></p>
+        <p class="subtitle">Porfavor, ingrese los datos solicitados</p>
+    </div>
+    <div class="form-container">
+        <form method="POST">
+            <div class="mb-4">
+                <label class="form-label">Id Usuario</label>
+                <input type="number" class="form-control" name="idUsuario" required
+                    placeholder="Ingrese el id del usuario" min="1">
+            </div>
+            <div class="mb-4">
+                <label class="form-label">Id Pelicula</label>
+                <input type="number" class="form-control" name="idPelicula" required
+                    placeholder="Ingrese el id de la pelicula" min="1">
+            </div>
+            <div class="mb-4">
+                <label class="form-label">Fecha de Renta</label>
+                <input type="date" class="form-control" name="fecha_renta" required
+                    placeholder="Ingrese la fecha de renta">
+            </div>
+            <div class="mb-4">
+                <label class="form-label">Dias de Renta</label>
+                <input type="number" class="form-control" name="dias_renta" min="0"
+                    placeholder="Ingrese los dias de renta">
+                <div id="dias_renta_help" class="form-text">Si no rellena este campo, automaticamente se pondran 5 dias
+                    de renta</div>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" name="estatus">
+                <label class="form-check-label">Entregada</label>
+            </div>
+            <div class="btn-submit-container">
+
+                <button type="submit" class="btn btn-submit">Crear</button>
+            </div>
+        </form>
+        {% with messages = get_flashed_messages()%}
+        {% if messages %}
+        {%for message in messages%}
+        <div class="alert {% if message == 'Renta creada correctamente' %}alert-primary{%else%}alert-danger{%endif%}"
+            role="alert" id="alert">
+            <strong>{{message}}</strong>
+
+        </div>
+        {%endfor%}
+
+        {% endif %}
+
+        {% endwith %}
+
+    </div>
+
+</main>
+
+<script src="../static/js/formularios.js"></script>
+{%endblock%}
