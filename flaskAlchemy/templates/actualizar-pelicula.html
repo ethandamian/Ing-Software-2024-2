@@ -1,6 +1,6 @@
 {% extends './layout.html'%}
 
-{% block title %}Crear Pelicula{% endblock %}
+{% block title %}Actualizar Pelicula{% endblock %}
 
 {%block customStyles%}
 <link rel="stylesheet" href="{{url_for('static',filename='CSS/crear-registros.css')}}">
@@ -10,42 +10,42 @@
 <main>
     <div class="header">
         <a type="button" class="btn" href="/home">Regresar</a>
-        <p>Crear <strong class="negritas">Pelicula</strong></p>
-        <p class="subtitle">Porfavor, ingrese los datos solicitados</p>
+        <p>Actualizar <strong class="negritas">Pelicula</strong></p>
+        <p class="subtitle">Porfavor, actualice los datos necesarios</p>
     </div>
     <div class="form-container">
         <form method="POST">
             <div class="mb-4">
                 <label class="form-label">Nombre</label>
                 <input type="text" class="form-control" name="nombre" required
-                    placeholder="Ingrese el Nombre de la Pelicula" pattern="[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+">
+                    placeholder="Ingrese el Nombre de la Pelicula" pattern="[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+"
+                    value="{{pelicula.nombre}}">
             </div>
             <div class="mb-4">
                 <label class="form-label">Género</label>
                 <input type="text" class="form-control" name="genero" required placeholder="Ingrese el Genero"
-                    pattern="[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ|]*">
+                    pattern="[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ|]*" value="{{pelicula.genero}}">
                 <div id="genero_help" class="form-text">Escriba los generos separados por |</div>
             </div>
             <div class="mb-4">
                 <label class="form-label">Duración</label>
                 <input type="number" class="form-control" id="duracionId" name="duracion" required
-                    placeholder="Ingrese la duración de la pelicula" min="1">
-                <div id="genero_help" class="form-text">Debe ser escritos en minutos</div>
+                    placeholder="Ingrese la duración de la pelicula" min="1" value="{{pelicula.duracion}}">
             </div>
             <div class="mb-4">
                 <label class="form-label">Inventario</label>
                 <input type="number" class="form-control" id="inventarioID" name="inventario" required min="1"
-                    placeholder="Ingrese el numero en el inventario">
+                    placeholder="Ingrese el numero en el inventario" value="{{pelicula.inventario}}">
             </div>
             <div class="btn-submit-container">
 
-                <button type="submit" class="btn btn-submit">Crear</button>
+                <button type="submit" class="btn btn-submit">Actualizar</button>
             </div>
         </form>
         {% with messages = get_flashed_messages()%}
         {% if messages %}
         {%for message in messages%}
-        <div class="alert alert-primary" role="alert" id="alert">
+        <div class="alert alert-danger" role="alert" id="alert">
             <strong>{{message}}</strong>
 
         </div>

@@ -1,6 +1,6 @@
 {% extends './layout.html'%}
 
-{% block title %}Crear Usuario{% endblock %}
+{% block title %}Solicitar Id - Peliculas{% endblock %}
 
 {%block customStyles%}
 <link rel="stylesheet" href="{{url_for('static',filename='CSS/pedir-id.css')}}">
@@ -14,7 +14,8 @@
         <p class="subtitle">Porfavor, ingrese el id de la pelicula a {{texto2}}</p>
     </div>
     <div class="form-container">
-        <form method="POST" onsubmit="return confirm('Do you really want to submit the form?');">
+        <form method="POST" {% if texto2=='eliminar' %}
+            onsubmit="return confirm('¿Estás seguro de borrar este registro?');" {%endif%}>
             <div class="mb-4">
                 <label class="form-label">Id Pelicula</label>
                 <input type="number" class="form-control" name="idPelicula" required

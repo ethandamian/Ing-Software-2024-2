@@ -30,7 +30,7 @@ def actualizar_nombre_usuario(nombre: str, id: int):
     usuario.nombre = nombre
     db.session.commit()
 
-def actualizar_usuario(id,nombre, apPat, password, apMat=None, email=None, profilePicture=None, superUser=None):
+def actualizar_usuario(id,nombre, apPat, password, email,apMat=None, superUser=None,profilePicture=None):
     usuario = obtener_usuario_por_id(id)
     usuario.nombre = nombre
     usuario.apPat = apPat

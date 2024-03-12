@@ -26,6 +26,10 @@ def actualizar_fecha_renta(fecha: str, id: int):
     renta.fecha_renta = fecha
     db.session.commit()
  
+def actualizar_estatus_renta(id_renta, estatus):
+    renta = obtener_renta_por_id(id_renta)
+    renta.estatus = estatus
+    db.session.commit()
 
 def eliminar_renta_por_id(id: int):
     renta = obtener_renta_por_id(id)

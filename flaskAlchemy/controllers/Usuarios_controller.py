@@ -31,7 +31,7 @@ def crear_usuario():
         print(super_user)
         model.crear_usuario(nombre, apPat, password, apMat, email, None, super_user)
         flash('Usuario creado correctamente')
-        return redirect(url_for('usuario.crear_usuario'))
+        return redirect(url_for('home'))
 
 @usuario_blueprint.route('/eliminar-usuario',methods=['GET','POST'])
 def eliminar_usuario():
@@ -45,3 +45,41 @@ def eliminar_usuario():
         else:
             flash('Usuario eliminado correctamente')
         return redirect(url_for('usuario.eliminar_usuario'))
+    
+@usuario_blueprint.route('/pedir-id-usuario',methods=['GET','POST'])
+def pedir_id_usuario():
+    if request.method == 'POST':
+        id_usuario = request.form.get('idUsuario')
+        if id_usuario and model.obtener_usuario_por_id(id_usuario) is not None:
+            # Redirigir a la vista para actualizar el usuario con el ID proporcionado
+            return redirect(url_for('usuario.actualizar_usuario', id_usuario=id_usuario))
+        else:
+            flash('Por favor, ingrese un ID de usuario válido', 'error')
+    return render_template('solicitar-id-usuario.html',texto1="Buscar", texto2="actualizar")
+
+
+@usuario_blueprint.route('/actualizar-usuario/<int:id_usuario>',methods=['GET','POST'])
+def actualizar_usuario(id_usuario):
+    usuario = model.obtener_usuario_por_id(id_usuario)
+    if request.method == 'POST':
+        nombre = request.form['nombre']
+        print(nombre)
+        apPat = request.form['apPat']
+        print(apPat)
+        apMat = request.form['apMat']
+        print(apMat)
+        password = request.form['password']
+        print(password)
+        email = request.form['email']
+        print(email)
+        super_user = 0
+        if 'superUser' in request.form:
+            super_user = 1
+        respuesta = model.actualizar_usuario(id_usuario,nombre,apPat,password,email,apMat,super_user,profilePicture=None)
+        if respuesta == -1:
+            flash('Error al actualizar el usuario')
+            return redirect(url_for('usuario.actualizar_usuario', id_usuario=id_usuario))
+        else:
+            flash('Usuario actualizado correctamente')
+            return redirect(url_for('home'))
+    return render_template('actualizar-usuario.html',usuario=usuario)

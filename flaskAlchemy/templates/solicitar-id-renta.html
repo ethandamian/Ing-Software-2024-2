@@ -1,6 +1,6 @@
 {% extends './layout.html'%}
 
-{% block title %}Solicitar Id - Usuario{% endblock %}
+{% block title %}Solicitar Id - Renta{% endblock %}
 
 {%block customStyles%}
 <link rel="stylesheet" href="{{url_for('static',filename='CSS/pedir-id.css')}}">
@@ -10,16 +10,16 @@
 <main>
     <div class="header">
         <a type="button" class="btn" href="/home">Regresar</a>
-        <p>{{texto1}} <strong class="negritas">Usuario</strong></p>
-        <p class="subtitle">Porfavor, ingrese el id del usuario a {{texto2}}</p>
+        <p>{{texto1}} <strong class="negritas">Renta</strong></p>
+        <p class="subtitle">Porfavor, ingrese el id de la renta a {{texto2}}</p>
     </div>
     <div class="form-container">
         <form method="POST" {% if texto2=='eliminar' %}
             onsubmit="return confirm('¿Estás seguro de borrar este registro?');" {%endif%}>
             <div class="mb-4">
-                <label class="form-label">Id Usuario</label>
-                <input type="number" class="form-control" name="idUsuario" required
-                    placeholder="Ingrese el id del usuario a {{texto2}}" min="1">
+                <label class="form-label">Id Renta</label>
+                <input type="number" class="form-control" name="idRenta" required
+                    placeholder="Ingrese el id de la renta a {{texto2}}" min="1">
             </div>
             <div class="btn-submit-container">
 
@@ -29,8 +29,7 @@
         {% with messages = get_flashed_messages()%}
         {% if messages %}
         {%for message in messages%}
-        <div class="alert {% if message == 'Usuario eliminado correctamente' %}alert-primary{%else%}alert-danger{%endif%}"
-            role="alert" id="alert">
+        <div class="alert alert-danger" role="alert" id="alert">
             <strong>{{message}}</strong>
 
         </div>

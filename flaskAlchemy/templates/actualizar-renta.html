@@ -1,0 +1,49 @@
+{% extends './layout.html'%}
+
+{% block title %}Actualizar Renta{% endblock %}
+
+{%block customStyles%}
+<link rel="stylesheet" href="{{url_for('static',filename='CSS/crear-registros.css')}}">
+{%endblock%}
+
+{% block body %}
+<main>
+    <div class="header">
+        <a type="button" class="btn" href="/home">Regresar</a>
+        <p>Actualizar <strong class="negritas">Renta</strong></p>
+        <p class="subtitle">Estatus de Entrega</p>
+    </div>
+    <div class="form-container">
+        <form method="POST">
+            <div class="mb-4">
+                <label class="form-label">¿Se ha entregado la pelicula rentada?</label>
+                <select class="form-select" aria-label="Estatus" name="eleccion">
+
+                    <option value="1" {% if renta.estatus==1 %} selected {%endif%}>Si</option>
+                    <option value="2" {% if renta.estatus==0 %} selected {%endif%}>No</option>
+                </select>
+                <button type="submit" class="btn btn-submit">Actualizar</button>
+            </div>
+
+
+    </div>
+    </form>
+    {% with messages = get_flashed_messages()%}
+    {% if messages %}
+    {%for message in messages%}
+    <div class="alert alert-danger" role="alert" id="alert">
+        <strong>{{message}}</strong>
+
+    </div>
+    {%endfor%}
+
+    {% endif %}
+
+    {% endwith %}
+
+    </div>
+
+</main>
+
+<script src="../static/js/formularios.js"></script>
+{%endblock%}

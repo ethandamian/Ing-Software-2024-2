@@ -21,6 +21,14 @@ def actualizar_nombre_pelicula(nombre: str, id: int):
     pelicula.nombre = nombre
     db.session.commit()
 
+def actualizar_pelicula(id,nombre, genero, duracion, inventario):
+    pelicula = obtener_pelicula_por_id(id)
+    pelicula.nombre = nombre
+    pelicula.genero = genero
+    pelicula.duracion = duracion
+    pelicula.inventario = inventario
+    db.session.commit()
+
 def eliminar_pelicula_por_id(id: int):
     pelicula = obtener_pelicula_por_id(id)
     try:

@@ -2,7 +2,7 @@
 
 setTimeout(function () {
     document.getElementById('alert').remove();
-}, 1500);
+}, 2000);
 
 function confirmarEliminacion() {
     // Mostrar un cuadro de diálogo de confirmación

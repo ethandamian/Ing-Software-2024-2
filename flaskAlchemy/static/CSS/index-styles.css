@@ -51,3 +51,11 @@ body {
     background-color: #8fcdff;
     color: #1a1c1e;
 }
+
+.alert {
+    width: 400px;
+    position: absolute;
+    margin-left: 47rem;
+    text-align: center;
+    margin-top: 3rem;
+}
