@@ -1,0 +1,43 @@
+.title {
+    color: white;
+    text-align: center;
+    margin-top: 80px;
+
+}
+
+.main {
+    background-color: #1b1c1c;
+
+    height: 100%;
+    padding-top: 80px;
+    height: 100vh;
+
+}
+
+.card {
+    border-color: #cfd0d1;
+    border-radius: 0.75rem;
+    width: 400px;
+    height: 300px;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    height: 80%;
+}
+
+.btn {
+    background-color: #8fcdff;
+    color: #1a1c1e;
+}

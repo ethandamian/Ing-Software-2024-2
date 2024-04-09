@@ -1,0 +1,131 @@
+import { useState } from "react"
+
+export default function UsuariosData() {
+
+
+    const [usuarioArr, setUsuarios] = useState([{
+        "idUsuario": 1,
+        "nombre": "Darryl",
+        "apPat": "Gomme",
+        "apMat": "Mathers",
+        "password": "tV1+316m2JsC",
+        "email": "dmathers0@github.io",
+        "superUser": 1
+    }, {
+        "idUsuario": 2,
+        "nombre": "Darn",
+        "apPat": "Shannahan",
+        "apMat": "Cumpton",
+        "password": "zW5&.jil",
+        "email": "dcumpton1@ox.ac.uk",
+        "superUser": 1
+    }, {
+        "idUsuario": 3,
+        "nombre": "Barnabas",
+        "apPat": "Readmire",
+        "apMat": "Gercken",
+        "password": "wF8~*$Z@",
+        "email": "bgercken2@51.la",
+        "superUser": 1
+    }, {
+        "idUsuario": 4,
+        "nombre": "Grannie",
+        "apPat": "Spere",
+        "apMat": "Attow",
+        "password": "cT1#bscOE{re9G5",
+        "email": "gattow3@etsy.com",
+        "superUser": 0
+    }, {
+        "idUsuario": 5,
+        "nombre": "Lind",
+        "apPat": "Doggart",
+        "apMat": "Wife",
+        "password": "cR2>SvCRYu9yb5et",
+        "email": "lwife4@umich.edu",
+        "superUser": 1
+    }, {
+        "idUsuario": 6,
+        "nombre": "Rosabella",
+        "apPat": "Kitcatt",
+        "apMat": "Valenti",
+        "password": "aI0}'cq}G",
+        "email": "rvalenti5@hc360.com",
+        "superUser": 1
+    }, {
+        "idUsuario": 7,
+        "nombre": "Clarie",
+        "apPat": "Watford",
+        "apMat": "D'Onisi",
+        "password": "aN8@B0uM9",
+        "email": "cdonisi6@walmart.com",
+        "superUser": 0
+    }, {
+        "idUsuario": 8,
+        "nombre": "Emlynne",
+        "apPat": "Nesfield",
+        "apMat": "Saunton",
+        "password": "fH2%}*@/",
+        "email": "esaunton7@google.es",
+        "superUser": 0
+    }, {
+        "idUsuario": 9,
+        "nombre": "Betteanne",
+        "apPat": "Sailor",
+        "apMat": "Groombridge",
+        "password": "kF0_z5x_b.NUdVZB",
+        "email": "bgroombridge8@cbsnews.com",
+        "superUser": 0
+    }, {
+        "idUsuario": 10,
+        "nombre": "Felicity",
+        "apPat": "Samuels",
+        "apMat": "Goves",
+        "password": "hL1+uW5}!!{lu",
+        "email": "fgoves9@aboutads.info",
+        "superUser": 1
+    }, {
+        "idUsuario": 11,
+        "nombre": "Flore",
+        "apPat": "Stivani",
+        "apMat": "Gercken",
+        "password": "yS7~X(#0lMl",
+        "email": "fgerckena@naver.com",
+        "superUser": 1
+    }, {
+        "idUsuario": 12,
+        "nombre": "Mylo",
+        "apPat": "Halsted",
+        "apMat": "Ghost",
+        "password": "sL8+a$X6g",
+        "email": "mghostb@ted.com",
+        "superUser": 0
+    }, {
+        "idUsuario": 13,
+        "nombre": "Anne-corinne",
+        "apPat": "Chagg",
+        "apMat": "Ebbins",
+        "password": "sN9@@Um.WN5",
+        "email": "aebbinsc@sphinn.com",
+        "superUser": 1
+    }, {
+        "idUsuario": 14,
+        "nombre": "Woodie",
+        "apPat": "Harvett",
+        "apMat": "Wasteney",
+        "password": "pA9}r,$AL*Z(",
+        "email": "wwasteneyd@dropbox.com",
+        "superUser": 0
+    }, {
+        "idUsuario": 15,
+        "nombre": "Bastian",
+        "apPat": "Fields",
+        "apMat": "Piola",
+        "password": "pU7/|2Ms\"",
+        "email": "bpiolae@homestead.com",
+        "superUser": 0
+
+    }]);
+
+    return { usuarioArr: usuarioArr, setUsuarios: setUsuarios }
+}
+
