@@ -14,6 +14,20 @@ export default function RegistrarUsuario({ usuarios }) {
     const emailInput = useInput('', { errorMsg: "Ingresa un email válido." });
     const superUserInput = useInput(false, { errorMsg: "", isCheckbox: true });
 
+    const hayErrorers = () => {
+        return nombreInput.error || apePatInput.error || apeMatInput.error || passwordInput.error || emailInput.error;
+    }
+
+    const obtenerUltimoId = () => {
+        const ultimoId = usuarios.usuarioArr[(usuarios.usuarioArr.length) - 1].idUsuario;
+        return ultimoId + 1;
+
+    }
+    const existeUsuario = () => {
+        const usuarioEncontrado = usuarios.usuarioArr.find(usuario => usuario.email === emailInput.value);
+        return usuarioEncontrado === undefined ? false : true;
+    }
+
     const onSubmitHandler = (e) => {
         let title = 'Error al crear usuario';
         let text = 'Por favor, revise los campos marcados en rojo.';
@@ -56,19 +70,6 @@ export default function RegistrarUsuario({ usuarios }) {
 
     };
 
-    const hayErrorers = () => {
-        return nombreInput.error || apePatInput.error || apeMatInput.error || passwordInput.error || emailInput.error;
-    }
-
-    const obtenerUltimoId = () => {
-        const ultimoId = usuarios.usuarioArr[(usuarios.usuarioArr.length) - 1].idUsuario;
-        return ultimoId + 1;
-
-    }
-    const existeUsuario = () => {
-        const usuarioEncontrado = usuarios.usuarioArr.find(usuario => usuario.email === emailInput.value);
-        return usuarioEncontrado === undefined ? false : true;
-    }
 
     return (
         <div className={styles.mainContainer}>

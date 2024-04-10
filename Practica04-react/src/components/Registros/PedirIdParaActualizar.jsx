@@ -10,7 +10,7 @@ export default function PedirIdParaActualizar({ registrosArr, texto }) {
     const navigate = useNavigate();
 
     const existeRegistro = () => {
-        const registroEncontrado = registrosArr[`${texto.toLowerCase()}Arr`].find(registro => registro[`id${texto}`] === parseInt(idInput.value));
+        const registroEncontrado = registrosArr[`${texto.toLowerCase()}Arr`].find(registro => registro[texto === 'Renta' ? `id${texto}r` : `id${texto}`] === parseInt(idInput.value));
         return registroEncontrado === undefined ? false : true;
     }
 

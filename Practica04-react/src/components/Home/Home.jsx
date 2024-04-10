@@ -39,14 +39,14 @@ export default function Home() {
                                 Seleccione una accion
                             </button>
                             <ul className="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item">Obtener todas las
-                                    Peliculas</a></li>
-                                <li><a className="dropdown-item" >Crear Pelicula</a>
+                                <li><Link className="dropdown-item" to="/peliculas">Obtener todas las
+                                    Peliculas</Link></li>
+                                <li><Link className="dropdown-item" to="/crear-pelicula">Crear Pelicula</Link>
                                 </li>
-                                <li><a className="dropdown-item" >Borrar Pelicula</a>
+                                <li><Link className="dropdown-item" to="/pedir-id-eliminar-pelicula">Borrar Pelicula</Link>
                                 </li>
-                                <li><a className="dropdown-item" >Actualizar
-                                    información de una Pelicula</a></li>
+                                <li><Link className="dropdown-item" to="/pedir-id-pelicula">Actualizar
+                                    información de una Pelicula</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -59,11 +59,10 @@ export default function Home() {
                                 Seleccione una accion
                             </button>
                             <ul className="dropdown-menu dropdown-menu-dark">
-                                <li><a className="dropdown-item" >Obtener todas las Rentas</a>
+                                <li><Link className="dropdown-item" to="/rentas" >Obtener todas las Rentas</Link>
                                 </li>
-                                <li><a className="dropdown-item" >Crear Renta</a></li>
-                                <li><a className="dropdown-item" >Actualizar estatus de
-                                    Renta</a></li>
+                                <li><Link className="dropdown-item" to="/crear-renta">Crear Renta</Link></li>
+                                <li><Link className="dropdown-item" to="/pedir-id-renta" >Actualizar Renta</Link></li>
                             </ul>
                         </div>
                     </div>

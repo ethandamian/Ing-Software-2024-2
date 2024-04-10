@@ -29,12 +29,12 @@ export default function EliminarRegistro({ registros, texto }) {
                 let icon = '';
                 if (!eliminarRegistro()) {
                     title = "Error";
-                    text = "El usuario no existe o ingresó un id incorrecto. Por favor, intente de nuevo.";
+                    text = `El ${texto.toLowerCase()} no existe o ingresó un id incorrecto. Por favor, intente de nuevo.`;
                     icon = "error";
 
                 } else {
                     title = "Eliminado";
-                    text = "El registro del usuario ha sido eliminado exitosamente.";
+                    text = `El registro ${texto == 'Usuario' ? 'del' : 'de la'} ${texto.toLowerCase()} ha sido eliminado exitosamente.`;
                     icon = "success";
 
                 }

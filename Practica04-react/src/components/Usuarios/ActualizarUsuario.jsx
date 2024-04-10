@@ -28,16 +28,23 @@ export default function ActualizarUsuario({ usuarios }) {
         superUserInput.setValue(usuario.superUser === 1 ? true : false);
         borrarAnterior();
 
+
+
     }, [])
 
-    const hayErrorers = () => {
-        return nombreInput.error || apePatInput.error || apeMatInput.error || passwordInput.error || emailInput.error;
+    const borrarAnterior = () => {
+        usuarios.setUsuarios((prevUsuarios) => prevUsuarios.filter(usuario => usuario.idUsuario !== parseInt(idUsuario)));
     }
 
     const obtenerUsuario = () => {
         const usuario = usuarios.usuarioArr.find(usuario => usuario.idUsuario === parseInt(idUsuario));
         return usuario;
     }
+
+    const hayErrorers = () => {
+        return nombreInput.error || apePatInput.error || apeMatInput.error || passwordInput.error || emailInput.error;
+    }
+
     const existeUsuario = () => {
         const usuarioEncontrado = usuarios.usuarioArr.find(usuario => usuario.email === emailInput.value);
         return usuarioEncontrado === undefined ? false : true;
@@ -45,10 +52,11 @@ export default function ActualizarUsuario({ usuarios }) {
 
 
     const onSubmitHandler = (e) => {
+        e.preventDefault();
+
         let title = 'Error al crear usuario';
         let text = 'Por favor, revise los campos marcados en rojo.';
         let icon = 'error';
-        e.preventDefault();
         if (existeUsuario()) {
             title = 'Error al actualizar usuario';
             text = 'El email ingresado ya existe. Por favor, ingrese otro email.';
@@ -56,7 +64,7 @@ export default function ActualizarUsuario({ usuarios }) {
         } else {
             if (!hayErrorers()) {
                 title = 'Usuario actualizado';
-                text = 'Redirigiendose a la pagina principal... ';
+                text = 'Redirigiendose a la página principal... ';
                 icon = 'success';
                 const nuevoUsuario = {
                     "idUsuario": parseInt(idUsuario),
@@ -68,19 +76,13 @@ export default function ActualizarUsuario({ usuarios }) {
                     "superUser": superUserInput.value ? 1 : 0
                 };
                 usuarios.setUsuarios((prevUsuarios) => [...prevUsuarios, nuevoUsuario]);
-                nombreInput.setValue('');
-                apePatInput.setValue('');
-                apeMatInput.setValue('');
-                passwordInput.setValue('');
-                emailInput.setValue('');
-                superUserInput.setValue(false);
 
 
                 setTimeout(() => {
 
                     navigate(-2);
 
-                }, 3000);
+                }, 2000);
 
             }
         }
@@ -97,9 +99,7 @@ export default function ActualizarUsuario({ usuarios }) {
 
     }
 
-    const borrarAnterior = () => {
-        usuarios.setUsuarios((prevUsuarios) => prevUsuarios.filter(usuario => usuario.idUsuario !== parseInt(idUsuario)));
-    }
+
 
     return (
         <div className={styles.mainContainer}>

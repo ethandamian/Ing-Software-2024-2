@@ -1,3 +1,3 @@
 export const isOnlyLetters = (value) => {
-    return /^[a-zA-Z]+$/.test(value);
+    return /^[a-zA-ZñÑ]+$/.test(value);
 }
