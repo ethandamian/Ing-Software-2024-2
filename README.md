@@ -23,4 +23,4 @@ Para levantar el front end basta con hacer los siguientes comandos:
 `cd ConexionBackFront`
 `npm start`
 
-Y después de aproximadamente 15 minutos, debería de aparecer una ventana del navegador predeterminado con la vista de la aplicación, que con el back-end listo, debería de poder funcionar de manera correcta.
+Y después de aproximadamente 15 minutos, debería de aparecer una ventana del navegador predeterminado con la vista de la aplicación, que con el back-end listo, debería de poder funcionar de manera correcta. Si por alguna razón llega a fallar esta aplicación de React, entonces hay que ejecutar un `npm install` o `npm i` para mayor simplicidad.
